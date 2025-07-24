@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧮 Calculadora de tiempo de trabajo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom max-width using arbitrary values from Tailwind JIT */
+        .max-w-1000 {
+            max-width: 1000px;
+        }
+        .animate-enter {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .animate-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Estilo para las listas de preguntas */
+        #result ul {
+            list-style-position: inside;
+            padding-left: 0;
+        }
+        #result li {
+            position: relative;
+            padding-left: 1.5em; /* Espacio para el ícono */
+            margin-bottom: 0.5rem;
+        }
+        #result li::before {
+            content: '🤔'; /* Emoji de reflexión */
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 flex items-center justify-center min-h-screen p-4 sm:p-6">
+
+    <div class="w-full max-w-1000">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 sm:p-8">
+            <h1 class="text-2xl md:text-3xl font-bold text-center text-gray-800 dark:text-white mb-2">Calculadora de tiempo de trabajo</h1>
+            <p class="text-center text-gray-500 dark:text-gray-400 mb-8">Descubre cuánto tiempo te cuesta realmente lo que compras.</p>
+
+            <form id="calculatorForm" class="space-y-6">
+                <div>
+                    <label for="currency" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Moneda</label>
+                    <select id="currency" name="currency" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                        <option value="USD">$ USD (Dólar estadounidense)</option>
+                        <option value="EUR">€ EUR (Euro)</option>
+                        <option value="ARS">$ ARS (Peso argentino)</option>
+                        <option value="COP">$ COP (Peso colombiano)</option>
+                        <option value="MXN">$ MXN (Peso mexicano)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="itemPrice" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Precio del producto o servicio</label>
+                    <input type="number" id="itemPrice" name="itemPrice" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Ej: 599" required step="any" oninvalid="this.setCustomValidity('Por favor, introduce un número válido.')" oninput="this.setCustomValidity('')">
+                </div>
+
+                <div>
+                    <label for="salary" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Tu salario (neto)</label>
+                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+                        <input type="number" id="salary" name="salary" class="w-full sm:w-2/3 p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Ej: 1500" required step="any" oninvalid="this.setCustomValidity('Por favor, introduce un número válido.')" oninput="this.setCustomValidity('')">
+                        <select id="salaryPeriod" name="salaryPeriod" class="w-full sm:w-1/3 p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
+                            <option value="monthly">por mes</option>
+                            <option value="hourly">por hora</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="hoursPerDay" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Horas por día</label>
+                        <input type="number" id="hoursPerDay" name="hoursPerDay" value="8" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" required step="any" oninvalid="this.setCustomValidity('Por favor, introduce un número válido.')" oninput="this.setCustomValidity('')">
+                    </div>
+                    <div>
+                        <label for="daysPerWeek" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Días por semana</label>
+                        <input type="number" id="daysPerWeek" name="daysPerWeek" value="5" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" required step="any" oninvalid="this.setCustomValidity('Por favor, introduce un número válido.')" oninput="this.setCustomValidity('')">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 transition-all duration-300 transform hover:scale-105">
+                        Calcular horas de trabajo
+                    </button>
+                    <button type="button" id="clearButton" class="w-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-700 transition-all duration-300">
+                        Limpiar
+                    </button>
+                </div>
+            </form>
+
+            <div id="result" class="mt-8">
+                <!-- El resultado aparecerá aquí -->
+            </div>
+        </div>
+        <footer class="text-center mt-6 text-sm text-gray-500 dark:text-gray-400">
+            <p>Creado por <a href="https://x.com/Cypher1984" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">Cypher</a> con ❤️ para ayudarte a tomar mejores decisiones financieras.</p>
+        </footer>
+    </div>
+
+    <script>
+        const form = document.getElementById('calculatorForm');
+        const resultDiv = document.getElementById('result');
+        const currencySelect = document.getElementById('currency');
+        const clearButton = document.getElementById('clearButton');
+        
+        let lastResultData = null;
+
+        const WEEKS_PER_MONTH = 4.33;
+        
+        const currencySymbols = {
+            USD: '$',
+            EUR: '€',
+            MXN: '$',
+            COP: '$',
+            ARS: '$'
+        };
+
+        const reflectiveQuestions = [
+            "¿Este gasto se alinea con mis metas financieras a largo plazo?",
+            "¿La felicidad que me dará esta compra durará más que las horas que invertí en ganarla?",
+            "¿Hay una alternativa más barata o gratuita que me dé una satisfacción similar?",
+            "¿Comprar esto me acerca o me aleja de la libertad financiera?",
+            "Si esperara un mes, ¿todavía querría realizar esta compra con la misma intensidad?",
+            "¿Qué otra cosa podría hacer con este dinero que me beneficie más en el futuro?",
+            "¿Es una necesidad real o un deseo impulsivo?",
+            "¿Estoy haciendo esta compra para impresionar a otros o para mi propio bienestar?",
+            "¿He considerado los costos de mantenimiento o los gastos asociados a esta compra?",
+            "¿Podría invertir estas horas de trabajo en aprender una nueva habilidad o en un proyecto personal?",
+            "¿Cómo me sentiré sobre esta compra en un año?",
+            "¿Esta compra añadirá valor real a mi vida o es un gasto superfluo?",
+            "¿Realmente necesito esto ahora mismo o puedo posponer la compra?",
+            "¿Este producto o servicio resolverá un problema real o solo me dará una gratificación temporal?",
+            "¿El impacto que tendrá en mi vida (en mi tiempo, espacio o rutina) justifica su coste?",
+            "¿Estoy adquiriendo la versión más cara cuando una más económica cumpliría la misma función?",
+            "¿Este gasto encaja en mi presupuesto mensual sin afectar mis ahorros?",
+            "¿Cuánto provecho real le sacaré a esta compra?",
+            "¿Existe una forma de obtener un beneficio similar sin realizar la compra completa (ej. alquilar, probar una alternativa)?",
+            "¿Esta compra me obligará a hacer otros gastos adicionales en el futuro?",
+            "¿Este gasto es una inversión en mi futuro o un simple capricho?",
+            "¿Cómo se compara este gasto con el progreso hacia mis metas de ahorro?",
+            "Si me dieran el valor de esta compra en efectivo ahora mismo, ¿aún la realizaría?",
+            "¿Estoy comprando esto por aburrimiento o por una necesidad genuina?",
+            "¿Puedo lograr el mismo resultado o sentimiento sin gastar este dinero?",
+            "¿Qué diría mi 'yo' del futuro sobre esta decisión de compra?",
+            "¿He consultado opiniones o buscado alternativas antes de decidirme?",
+            "¿Este gasto me traerá estrés financiero más adelante?",
+            "¿El valor que me aporta es proporcional al tiempo de vida que estoy intercambiando por él?",
+            "¿Estoy sacrificando una experiencia futura (como un viaje) por esta compra presente?"
+        ];
+
+        function getRandomQuestions(count) {
+            const shuffled = [...reflectiveQuestions].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
+        }
+        
+        function resetCalculator() {
+            form.reset();
+            resultDiv.innerHTML = '';
+            lastResultData = null;
+        }
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const itemPrice = parseFloat(document.getElementById('itemPrice').value);
+            const salary = parseFloat(document.getElementById('salary').value);
+            const salaryPeriod = document.getElementById('salaryPeriod').value;
+            const hoursPerDay = parseFloat(document.getElementById('hoursPerDay').value);
+            const daysPerWeek = parseFloat(document.getElementById('daysPerWeek').value);
+
+            if (isNaN(itemPrice) || isNaN(salary) || isNaN(hoursPerDay) || isNaN(daysPerWeek) ||
+                itemPrice <= 0 || salary <= 0 || hoursPerDay <= 0 || daysPerWeek <= 0) {
+                displayError('Asegúrate de rellenar todos los campos con números positivos.');
+                lastResultData = null;
+                return;
+            }
+            
+            const hoursPerWeek = hoursPerDay * daysPerWeek;
+
+            let hourlyRate;
+            switch (salaryPeriod) {
+                case 'hourly':
+                    hourlyRate = salary;
+                    break;
+                case 'monthly':
+                    hourlyRate = salary / (hoursPerWeek * WEEKS_PER_MONTH);
+                    break;
+            }
+
+            if (hourlyRate <= 0 || !isFinite(hourlyRate)) {
+                displayError('Con los datos de tu jornada, no se puede calcular un salario por hora. Revisa las horas y días.');
+                lastResultData = null;
+                return;
+            }
+
+            const hoursNeeded = itemPrice / hourlyRate;
+            
+            const randomQuestions = getRandomQuestions(3);
+            const questionsHTML = `<ul>${randomQuestions.map(q => `<li>${q}</li>`).join('')}</ul>`;
+            
+            const suggestionsHTML = `
+                <h4 class="font-semibold text-gray-800 dark:text-white mb-2">Antes de comprar, pregúntate:</h4>
+                <div class="text-sm text-gray-700 dark:text-gray-300">${questionsHTML}</div>
+            `;
+
+            lastResultData = {
+                hours: hoursNeeded,
+                rate: hourlyRate,
+                originalPrice: itemPrice,
+                suggestionsHTML: suggestionsHTML,
+                hoursPerDay: hoursPerDay
+            };
+            
+            displayResult(currencySelect.value);
+        });
+
+        currencySelect.addEventListener('input', function() {
+            if (lastResultData) {
+                displayResult(this.value);
+            }
+        });
+        
+        ['itemPrice', 'salary', 'salaryPeriod', 'hoursPerDay', 'daysPerWeek'].forEach(id => {
+            document.getElementById(id).addEventListener('input', () => {
+                lastResultData = null;
+                resultDiv.innerHTML = '';
+            });
+        });
+
+        clearButton.addEventListener('click', resetCalculator);
+
+        window.addEventListener('load', resetCalculator);
+
+        function displayResult(currentCurrency) {
+            if (!lastResultData) return;
+
+            const { hours, rate, originalPrice, suggestionsHTML, hoursPerDay } = lastResultData;
+            const formattedResult = formatTime(hours, hoursPerDay);
+            const symbol = currencySymbols[currentCurrency];
+
+            resultDiv.innerHTML = `
+                <div class="bg-blue-50 dark:bg-gray-700 border-l-4 border-blue-500 dark:border-blue-400 p-4 rounded-lg animate-enter">
+                    <h3 class="text-lg font-bold text-blue-900 dark:text-white">Resultado del Cálculo:</h3>
+                    <p class="text-2xl md:text-3xl font-bold text-blue-700 dark:text-blue-300 my-2">${formattedResult}</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Es el tiempo que necesitas trabajar para ganar <span class="font-semibold">${symbol}${originalPrice.toLocaleString('es-ES', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>.</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">(Basado en un salario por hora de ${symbol}${rate.toFixed(2).toLocaleString('es-ES')})</p>
+                    
+                    <div class="mt-4 pt-4 border-t border-blue-200 dark:border-gray-600">
+                        ${suggestionsHTML || ''}
+                    </div>
+                </div>
+            `;
+            const resultElement = resultDiv.querySelector('.animate-enter');
+            requestAnimationFrame(() => resultElement.classList.add('animate-enter-active'));
+        }
+        
+        function displayError(message) {
+             resultDiv.innerHTML = `
+                <div class="bg-red-50 dark:bg-gray-700 border-l-4 border-red-500 dark:border-red-400 p-4 rounded-lg animate-enter">
+                    <p class="text-red-700 dark:text-red-300 font-medium">${message}</p>
+                </div>
+            `;
+            const errorElement = resultDiv.querySelector('.animate-enter');
+            requestAnimationFrame(() => errorElement.classList.add('animate-enter-active'));
+        }
+
+        function formatTime(totalHours, hoursPerDay) {
+            if (totalHours < 1) {
+                const minutes = totalHours * 60;
+                return `${minutes.toFixed(0)} minutos`;
+            }
+            
+            const hoursText = `${totalHours.toFixed(1)} horas`;
+
+            if (hoursPerDay > 0 && totalHours >= hoursPerDay) {
+                const days = totalHours / hoursPerDay;
+                return `${hoursText} <span class="text-lg md:text-xl text-blue-600 dark:text-blue-400">(~${days.toFixed(1)} días)</span>`;
+            }
+            return hoursText;
+        }
+    </script>
+
+</body>
+</html>
