@@ -4,6 +4,10 @@ Una sencilla pero poderosa herramienta web diseñada para ayudarte a tomar mejor
 
 ¿Alguna vez te has preguntado cuántas horas de tu vida necesitas invertir para comprar ese nuevo gadget o ir a cenar a ese restaurante de moda? Esta calculadora te da la respuesta de forma clara y directa.
 
+## 🌟 Demo
+
+Puedes probar la aplicación aquí: https://Cypher1984GIT.github.io/marca-de-agua
+
 ## ✨ Características
 
 - **Perspectiva Real del Costo**: Convierte precios monetarios en horas, días y minutos de trabajo.
