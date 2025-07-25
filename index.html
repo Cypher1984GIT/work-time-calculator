@@ -221,6 +221,7 @@
             let totalPrice = itemPrice;
             let interestAmount = 0;
             let monthlyPayment = 0;
+            let hoursForInterest = 0;
 
             if (isCredit) {
                 if (isNaN(interestRate) || interestRate < 0 || isNaN(installments) || installments <= 0) {
@@ -249,6 +250,10 @@
                 return;
             }
 
+            if (isCredit && hourlyRate > 0) {
+                hoursForInterest = interestAmount / hourlyRate;
+            }
+
             const hoursNeeded = totalPrice / hourlyRate;
             
             const randomQuestions = getRandomQuestions(3);
@@ -267,6 +272,7 @@
                 interestAmount: interestAmount,
                 installments: installments,
                 monthlyPayment: monthlyPayment,
+                hoursForInterest: hoursForInterest,
                 totalPrice: totalPrice,
                 suggestionsHTML: suggestionsHTML,
                 hoursPerDay: hoursPerDay
@@ -308,7 +314,7 @@
         function displayResult(currentCurrency) {
             if (!lastResultData) return;
 
-            const { hours, rate, itemPrice, isCredit, interestAmount, installments, monthlyPayment, totalPrice, suggestionsHTML, hoursPerDay } = lastResultData;
+            const { hours, rate, itemPrice, isCredit, interestAmount, installments, monthlyPayment, hoursForInterest, totalPrice, suggestionsHTML, hoursPerDay } = lastResultData;
             const formattedResult = formatTime(hours, hoursPerDay);
             const symbol = currencySymbols[currentCurrency];
 
@@ -318,11 +324,13 @@
 
             if (isCredit) {
                 const formattedMonthly = monthlyPayment.toLocaleString('es-ES', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                const formattedInterestTime = formatTime(hoursForInterest, hoursPerDay, true);
                 priceDetailsHTML = `
                     <div class="text-sm text-gray-600 dark:text-gray-300 space-y-1">
                         <p>Precio del producto: <span class="font-medium">${symbol}${itemPrice.toLocaleString('es-ES', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span></p>
                         <p>Interés del crédito: <span class="font-medium">+ ${symbol}${interestAmount.toLocaleString('es-ES', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span></p>
                         <p class="mt-1">Costo total (en ${installments} cuotas): <span class="font-semibold">${symbol}${totalPrice.toLocaleString('es-ES', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span></p>
+                        <p class="mt-2 text-red-600 dark:text-red-400">↳ Tiempo extra por crédito: <span class="font-bold">${formattedInterestTime}</span></p>
                         <p class="mt-2 pt-2 border-t border-blue-200 dark:border-gray-600">Cuota mensual estimada: <span class="font-bold text-blue-700 dark:text-blue-300">${symbol}${formattedMonthly}</span></p>
                     </div>`;
             }
@@ -353,17 +361,18 @@
             requestAnimationFrame(() => errorElement.classList.add('animate-enter-active'));
         }
 
-        function formatTime(totalHours, hoursPerDay) {
+        function formatTime(totalHours, hoursPerDay, isSubResult = false) {
             if (totalHours < 1) {
                 const minutes = totalHours * 60;
                 return `${minutes.toFixed(0)} minutos`;
             }
             
             const hoursText = `${totalHours.toFixed(1)} horas`;
+            const daysSpanClass = isSubResult ? "font-semibold" : "text-lg md:text-xl text-blue-600 dark:text-blue-400";
 
             if (hoursPerDay > 0 && totalHours >= hoursPerDay) {
                 const days = totalHours / hoursPerDay;
-                return `${hoursText} <span class="text-lg md:text-xl text-blue-600 dark:text-blue-400">(~${days.toFixed(1)} días)</span>`;
+                return `${hoursText} <span class="${daysSpanClass}">(~${days.toFixed(1)} días)</span>`;
             }
             return hoursText;
         }
