@@ -6,7 +6,7 @@ Una sencilla pero poderosa herramienta web diseñada para ayudarte a tomar mejor
 
 ## 🌟 Demo
 
-Puedes probar la aplicación aquí: https://Cypher1984GIT.github.io/Calculadora-tiempo/
+Puedes probar la aplicación aquí: https://Cypher1984GIT.github.io/calculadora-tiempo/
 
 ## ✨ Características
 
