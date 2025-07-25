@@ -15,6 +15,10 @@ Puedes probar la aplicación aquí: https://Cypher1984GIT.github.io/calculadora-
     - Soporta múltiples monedas (USD, EUR, ARS, COP, MXN).
     - Acepta salarios netos por hora o mensuales.
     - Permite personalizar tu jornada laboral (horas por día y días por semana).
+- **Cálculo de Compras a Crédito**:
+    - Simula el costo real de una compra financiada.
+    - Permite ingresar la tasa de interés anual y el número de cuotas.
+    - Muestra el desglose del precio, el interés total y la cuota mensual estimada.
 - **Reflexión Financiera**: Después de cada cálculo, la herramienta te presenta preguntas aleatorias para fomentar una reflexión consciente sobre tus hábitos de consumo.
 - **Diseño Moderno y Responsivo**: Interfaz limpia y fácil de usar en cualquier dispositivo, con soporte para modo claro y oscuro.
 - **Sin Dependencias Externas**: Creada con HTML, JavaScript puro y Tailwind CSS (vía CDN), lo que la hace ligera y fácil de ejecutar.
@@ -27,8 +31,9 @@ Puedes probar la aplicación aquí: https://Cypher1984GIT.github.io/calculadora-
     - **Precio del producto**: Introduce el costo del artículo que deseas comprar.
     - **Tu salario (neto)**: Ingresa tu salario neto y selecciona si es mensual o por hora.
     - **Jornada laboral**: Ajusta las horas que trabajas por día y los días que trabajas por semana. Por defecto, se establece una jornada estándar de 8 horas, 5 días a la semana.
+    - **Compra a crédito (opcional)**: Si la compra es financiada, marca la casilla "¿Comprado a crédito?". Ingresa la tasa de interés anual y el número de cuotas para ver el costo total real y la cuota mensual.
 3.  **Calcula**: Haz clic en el botón **"Calcular horas de trabajo"**.
-4.  **Analiza el resultado**: La aplicación te mostrará el tiempo exacto que necesitas trabajar para pagar el artículo. Tómate un momento para leer las preguntas de reflexión y considerar si la compra realmente vale tu tiempo.
+4.  **Analiza el resultado**: La aplicación te mostrará el tiempo exacto que necesitas trabajar para pagar el artículo, incluyendo los intereses si aplica. Tómate un momento para leer las preguntas de reflexión y considerar si la compra realmente vale tu tiempo.
 
 ## 🛠️ Tecnologías Utilizadas
 
