@@ -1,14 +1,14 @@
-🧮 Work Time Calculator
+🧮 ## Work Time Calculator
 
 A simple but powerful web tool designed to help you make better financial decisions by translating the cost of a product or service into the most valuable resource: your time.
 
 Have you ever wondered how many hours of your life you need to invest to buy that new gadget or go out to dinner at that trendy restaurant? This calculator gives you the answer in a clear and direct way.
 
-🌟 Demo
+🌟 ## Demo
 
 You can try the application here: https://github.com/Cypher1984GIT/work-time-calculator
 
-✨ Features
+✨ ## Features
 
 Real Cost Perspective: Converts monetary prices into hours, days, and minutes of work.
 
@@ -34,7 +34,7 @@ Modern and Responsive Design: Clean and easy-to-use interface on any device, wit
 
 No External Dependencies: Created with HTML, pure JavaScript, and Tailwind CSS (via CDN), which makes it lightweight and easy to run.
 
-🚀 How to use it?
+🚀 ## How to use it?
 
 Open the file: Simply open the index.html file in your preferred web browser.
 
@@ -54,7 +54,7 @@ Calculate: Click the "Calculate work hours" button.
 
 Analyze the result: The application will show you the exact time you need to work to pay for the item, including interest if applicable. Take a moment to read the reflection questions and consider if the purchase is really worth your time.
 
-🛠️ Technologies Used
+🛠️ ## Technologies Used
 
 HTML5: For the semantic structure of the content.
 
@@ -64,6 +64,6 @@ JavaScript (Vanilla): For all calculation logic and interactivity, without the n
 
 Google Fonts: For clean and readable typography (Inter).
 
-✍️ Author
+✍️ ## Author
 
 Created with ❤️ by Cypher.
