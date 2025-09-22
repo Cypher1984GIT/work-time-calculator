@@ -1,57 +1,69 @@
-# 🧮 Calculadora de Tiempo de Trabajo
+🧮 Work Time Calculator
 
-Una sencilla pero poderosa herramienta web diseñada para ayudarte a tomar mejores decisiones financieras al traducir el costo de un producto o servicio en el recurso más valioso: **tu tiempo**.
+A simple but powerful web tool designed to help you make better financial decisions by translating the cost of a product or service into the most valuable resource: your time.
 
-¿Alguna vez te has preguntado cuántas horas de tu vida necesitas invertir para comprar ese nuevo gadget o ir a cenar a ese restaurante de moda? Esta calculadora te da la respuesta de forma clara y directa.
+Have you ever wondered how many hours of your life you need to invest to buy that new gadget or go out to dinner at that trendy restaurant? This calculator gives you the answer in a clear and direct way.
 
-## 🌟 Demo
+🌟 Demo
 
-Puedes probar la aplicación aquí: https://Cypher1984GIT.github.io/calculadora-tiempo/
+You can try the application here: https://github.com/Cypher1984GIT/work-time-calculator
 
-## ✨ Características
+✨ Features
 
-- **Perspectiva Real del Costo**: Convierte precios monetarios en horas, días y minutos de trabajo.
-- **Configuración Flexible**:
-    - Soporta múltiples monedas (USD, EUR, ARS, COP, MXN).
-    - Acepta salarios netos por hora o mensuales.
-    - Permite personalizar tu jornada laboral (horas por día y días por semana).
-- **Cálculo de Compras a Crédito**:
-    - Simula el costo real de una compra financiada.
-    - Permite ingresar la tasa de interés anual y el número de cuotas.
-    - Muestra el desglose del precio, el interés total y la cuota mensual estimada.
-- **Reflexión Financiera**: Después de cada cálculo, la herramienta te presenta preguntas aleatorias para fomentar una reflexión consciente sobre tus hábitos de consumo.
-- **Diseño Moderno y Responsivo**: Interfaz limpia y fácil de usar en cualquier dispositivo, con soporte para modo claro y oscuro.
-- **Sin Dependencias Externas**: Creada con HTML, JavaScript puro y Tailwind CSS (vía CDN), lo que la hace ligera y fácil de ejecutar.
+Real Cost Perspective: Converts monetary prices into hours, days, and minutes of work.
 
-## 🚀 ¿Cómo usarla?
+Flexible Configuration:
 
-1.  **Abre el archivo**: Simplemente abre el archivo `index.html` en tu navegador web preferido.
-2.  **Completa el formulario**:
-    - **Moneda**: Elige la moneda de tu salario y del producto.
-    - **Precio del producto**: Introduce el costo del artículo que deseas comprar.
-    - **Tu salario (neto)**: Ingresa tu salario neto y selecciona si es mensual o por hora.
-    - **Jornada laboral**: Ajusta las horas que trabajas por día y los días que trabajas por semana. Por defecto, se establece una jornada estándar de 8 horas, 5 días a la semana.
-    - **Compra a crédito (opcional)**: Si la compra es financiada, marca la casilla "¿Comprado a crédito?". Ingresa la tasa de interés anual y el número de cuotas para ver el costo total real y la cuota mensual.
-3.  **Calcula**: Haz clic en el botón **"Calcular horas de trabajo"**.
-4.  **Analiza el resultado**: La aplicación te mostrará el tiempo exacto que necesitas trabajar para pagar el artículo, incluyendo los intereses si aplica. Tómate un momento para leer las preguntas de reflexión y considerar si la compra realmente vale tu tiempo.
+Supports multiple currencies (USD, EUR, ARS, COP, MXN).
 
-## 🛠️ Tecnologías Utilizadas
+Accepts net hourly or monthly salaries.
 
-- **HTML5**: Para la estructura semántica del contenido.
-- **Tailwind CSS**: Para un diseño rápido, moderno y responsivo, cargado a través de su CDN.
-- **JavaScript (Vanilla)**: Para toda la lógica de cálculo e interactividad, sin necesidad de frameworks.
-- **Google Fonts**: Para una tipografía limpia y legible (`Inter`).
+Allows you to customize your workday (hours per day and days per week).
 
-## ✍️ Autor
+Credit Purchase Calculation:
 
-Creado con ❤️ por **Cypher**.
+Simulates the real cost of a financed purchase.
 
-- **Twitter/X**: @Cypher1984
+Allows you to enter the annual interest rate and the number of installments.
 
-## 📄 Licencia
+Shows the breakdown of the price, the total interest, and the estimated monthly installment.
 
-Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles (si se añade en el futuro).
+Financial Reflection: After each calculation, the tool presents random questions to encourage conscious reflection on your consumption habits.
 
----
+Modern and Responsive Design: Clean and easy-to-use interface on any device, with support for light and dark mode.
 
-> "El tiempo es más valioso que el dinero. Puedes conseguir más dinero, pero no puedes conseguir más tiempo." - Jim Rohn
+No External Dependencies: Created with HTML, pure JavaScript, and Tailwind CSS (via CDN), which makes it lightweight and easy to run.
+
+🚀 How to use it?
+
+Open the file: Simply open the index.html file in your preferred web browser.
+
+Fill out the form:
+
+Currency: Choose the currency of your salary and the product.
+
+Product price: Enter the cost of the item you want to buy.
+
+Your (net) salary: Enter your net salary and select if it is monthly or hourly.
+
+Workday: Adjust the hours you work per day and the days you work per week. By default, a standard workday of 8 hours, 5 days a week is set.
+
+Credit purchase (optional): If the purchase is financed, check the box "Purchased on credit?". Enter the annual interest rate and the number of installments to see the real total cost and the monthly installment.
+
+Calculate: Click the "Calculate work hours" button.
+
+Analyze the result: The application will show you the exact time you need to work to pay for the item, including interest if applicable. Take a moment to read the reflection questions and consider if the purchase is really worth your time.
+
+🛠️ Technologies Used
+
+HTML5: For the semantic structure of the content.
+
+Tailwind CSS: For fast, modern, and responsive design, loaded through its CDN.
+
+JavaScript (Vanilla): For all calculation logic and interactivity, without the need for frameworks.
+
+Google Fonts: For clean and readable typography (Inter).
+
+✍️ Author
+
+Created with ❤️ by Cypher.
