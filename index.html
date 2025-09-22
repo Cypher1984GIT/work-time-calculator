@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🧮 Calculadora de tiempo de trabajo</title>
+    <title>🧮 Work Time Calculator</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,45 +47,45 @@
 
     <div class="w-full max-w-1000">
         <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 sm:p-8">
-            <h1 class="text-2xl md:text-3xl font-bold text-center text-gray-800 dark:text-white mb-2">Calculadora de tiempo de trabajo</h1>
-            <p class="text-center text-gray-500 dark:text-gray-400 mb-8">Descubre cuánto tiempo te cuesta realmente lo que compras.</p>
+            <h1 class="text-2xl md:text-3xl font-bold text-center text-gray-800 dark:text-white mb-2">Work Time Calculator</h1>
+            <p class="text-center text-gray-500 dark:text-gray-400 mb-8">Find out how much time what you buy really costs you.</p>
 
             <form id="calculatorForm" class="space-y-6">
                 <div>
-                    <label for="currency" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Moneda</label>
+                    <label for="currency" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Currency</label>
                     <select id="currency" name="currency" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
-                        <option value="USD">$ USD (Dólar estadounidense)</option>
+                        <option value="USD">$ USD (United States Dollar)</option>
                         <option value="EUR">€ EUR (Euro)</option>
-                        <option value="ARS">$ ARS (Peso argentino)</option>
-                        <option value="COP">$ COP (Peso colombiano)</option>
-                        <option value="MXN">$ MXN (Peso mexicano)</option>
+                        <option value="ARS">$ ARS (Argentine Peso)</option>
+                        <option value="COP">$ COP (Colombian Peso)</option>
+                        <option value="MXN">$ MXN (Mexican Peso)</option>
                     </select>
                 </div>
 
                 <div>
-                    <label for="itemPrice" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Precio del producto o servicio</label>
-                    <input type="number" id="itemPrice" name="itemPrice" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Ej: 599" required step="any" oninvalid="this.setCustomValidity('Por favor, introduce un número válido.')" oninput="this.setCustomValidity('')">
+                    <label for="itemPrice" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Product or service price</label>
+                    <input type="number" id="itemPrice" name="itemPrice" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Ex: 599" required step="any" oninvalid="this.setCustomValidity('Please enter a valid number.')" oninput="this.setCustomValidity('')">
                 </div>
 
                 <div>
-                    <label for="salary" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Tu salario (neto)</label>
+                    <label for="salary" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Your salary (net)</label>
                     <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-                        <input type="number" id="salary" name="salary" class="w-full sm:w-2/3 p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Ej: 1500" required step="any" oninvalid="this.setCustomValidity('Por favor, introduce un número válido.')" oninput="this.setCustomValidity('')">
+                        <input type="number" id="salary" name="salary" class="w-full sm:w-2/3 p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Ex: 1500" required step="any" oninvalid="this.setCustomValidity('Please enter a valid number.')" oninput="this.setCustomValidity('')">
                         <select id="salaryPeriod" name="salaryPeriod" class="w-full sm:w-1/3 p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
-                            <option value="monthly">por mes</option>
-                            <option value="hourly">por hora</option>
+                            <option value="monthly">per month</option>
+                            <option value="hourly">per hour</option>
                         </select>
                     </div>
                 </div>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                        <label for="hoursPerDay" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Horas por día</label>
-                        <input type="number" id="hoursPerDay" name="hoursPerDay" value="8" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" required step="any" oninvalid="this.setCustomValidity('Por favor, introduce un número válido.')" oninput="this.setCustomValidity('')">
+                        <label for="hoursPerDay" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Hours per day</label>
+                        <input type="number" id="hoursPerDay" name="hoursPerDay" value="8" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" required step="any" oninvalid="this.setCustomValidity('Please enter a valid number.')" oninput="this.setCustomValidity('')">
                     </div>
                     <div>
-                        <label for="daysPerWeek" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Días por semana</label>
-                        <input type="number" id="daysPerWeek" name="daysPerWeek" value="5" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" required step="any" oninvalid="this.setCustomValidity('Por favor, introduce un número válido.')" oninput="this.setCustomValidity('')">
+                        <label for="daysPerWeek" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Days per week</label>
+                        <input type="number" id="daysPerWeek" name="daysPerWeek" value="5" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" required step="any" oninvalid="this.setCustomValidity('Please enter a valid number.')" oninput="this.setCustomValidity('')">
                     </div>
                 </div>
 
@@ -96,27 +96,27 @@
                             <input id="creditCheckbox" name="credit" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-600 dark:bg-gray-700 dark:border-gray-600">
                         </div>
                         <div class="ml-3 text-sm leading-6">
-                            <label for="creditCheckbox" class="font-medium text-gray-700 dark:text-gray-300">¿Comprado a crédito?</label>
+                            <label for="creditCheckbox" class="font-medium text-gray-700 dark:text-gray-300">Bought on credit?</label>
                         </div>
                     </div>
                     <div id="creditDetailsContainer" class="hidden animate-enter grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                            <label for="interestRate" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Interés anual (%)</label>
-                            <input type="number" id="interestRate" name="interestRate" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Ej: 29.5" step="any" oninvalid="this.setCustomValidity('Por favor, introduce un número válido.')" oninput="this.setCustomValidity('')">
+                            <label for="interestRate" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Annual interest (%)</label>
+                            <input type="number" id="interestRate" name="interestRate" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Ex: 29.5" step="any" oninvalid="this.setCustomValidity('Please enter a valid number.')" oninput="this.setCustomValidity('')">
                         </div>
                         <div>
-                            <label for="installments" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Número de cuotas</label>
-                            <input type="number" id="installments" name="installments" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Ej: 12" step="1" oninvalid="this.setCustomValidity('Por favor, introduce un número entero.')" oninput="this.setCustomValidity('')">
+                            <label for="installments" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Number of installments</label>
+                            <input type="number" id="installments" name="installments" class="w-full p-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Ex: 12" step="1" oninvalid="this.setCustomValidity('Please enter a whole number.')" oninput="this.setCustomValidity('')">
                         </div>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                     <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 transition-all duration-300 transform hover:scale-105">
-                        Calcular horas de trabajo
+                        Calculate work hours
                     </button>
                     <button type="button" id="clearButton" class="w-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-700 transition-all duration-300">
-                        Limpiar
+                        Clear
                     </button>
                 </div>
             </form>
@@ -126,7 +126,7 @@
             </div>
         </div>
         <footer class="text-center mt-6 text-sm text-gray-500 dark:text-gray-400">
-            <p>Creado por <a href="https://x.com/Cypher1984" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Cypher</a> con ❤️ para ayudarte a tomar mejores decisiones financieras.</p>
+            <p>Created by <a href="https://x.com/Cypher1984" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Cypher</a> with ❤️ to help you make better financial decisions.</p>
         </footer>
     </div>
 
@@ -153,36 +153,36 @@
         };
 
         const reflectiveQuestions = [
-            "¿Este gasto se alinea con mis metas financieras a largo plazo?",
-            "¿La felicidad que me dará esta compra durará más que las horas que invertí en ganarla?",
-            "¿Hay una alternativa más barata o gratuita que me dé una satisfacción similar?",
-            "¿Comprar esto me acerca o me aleja de la libertad financiera?",
-            "Si esperara un mes, ¿todavía querría realizar esta compra con la misma intensidad?",
-            "¿Qué otra cosa podría hacer con este dinero que me beneficie más en el futuro?",
-            "¿Es una necesidad real o un deseo impulsivo?",
-            "¿Estoy haciendo esta compra para impresionar a otros o para mi propio bienestar?",
-            "¿He considerado los costos de mantenimiento o los gastos asociados a esta compra?",
-            "¿Podría invertir estas horas de trabajo en aprender una nueva habilidad o en un proyecto personal?",
-            "¿Cómo me sentiré sobre esta compra en un año?",
-            "¿Esta compra añadirá valor real a mi vida o es un gasto superfluo?",
-            "¿Realmente necesito esto ahora mismo o puedo posponer la compra?",
-            "¿Este producto o servicio resolverá un problema real o solo me dará una gratificación temporal?",
-            "¿El impacto que tendrá en mi vida (en mi tiempo, espacio o rutina) justifica su coste?",
-            "¿Estoy adquiriendo la versión más cara cuando una más económica cumpliría la misma función?",
-            "¿Este gasto encaja en mi presupuesto mensual sin afectar mis ahorros?",
-            "¿Cuánto provecho real le sacaré a esta compra?",
-            "¿Existe una forma de obtener un beneficio similar sin realizar la compra completa (ej. alquilar, probar una alternativa)?",
-            "¿Esta compra me obligará a hacer otros gastos adicionales en el futuro?",
-            "¿Este gasto es una inversión en mi futuro o un simple capricho?",
-            "¿Cómo se compara este gasto con el progreso hacia mis metas de ahorro?",
-            "Si me dieran el valor de esta compra en efectivo ahora mismo, ¿aún la realizaría?",
-            "¿Estoy comprando esto por aburrimiento o por una necesidad genuina?",
-            "¿Puedo lograr el mismo resultado o sentimiento sin gastar este dinero?",
-            "¿Qué diría mi 'yo' del futuro sobre esta decisión de compra?",
-            "¿He consultado opiniones o buscado alternativas antes de decidirme?",
-            "¿Este gasto me traerá estrés financiero más adelante?",
-            "¿El valor que me aporta es proporcional al tiempo de vida que estoy intercambiando por él?",
-            "¿Estoy sacrificando una experiencia futura (como un viaje) por esta compra presente?"
+            "Does this expense align with my long-term financial goals?",
+            "Will the happiness this purchase brings me last longer than the hours I invested to earn it?",
+            "Is there a cheaper or free alternative that would give me similar satisfaction?",
+            "Does buying this bring me closer to or further from financial freedom?",
+            "If I waited a month, would I still want to make this purchase with the same intensity?",
+            "What else could I do with this money that would benefit me more in the future?",
+            "Is this a real need or an impulsive desire?",
+            "Am I making this purchase to impress others or for my own well-being?",
+            "Have I considered the maintenance costs or associated expenses of this purchase?",
+            "Could I invest these work hours in learning a new skill or a personal project?",
+            "How will I feel about this purchase in a year?",
+            "Will this purchase add real value to my life, or is it a superfluous expense?",
+            "Do I really need this right now, or can I postpone the purchase?",
+            "Will this product or service solve a real problem or just give me temporary gratification?",
+            "Does the impact it will have on my life (in my time, space, or routine) justify its cost?",
+            "Am I buying the most expensive version when a cheaper one would serve the same function?",
+            "Does this expense fit into my monthly budget without affecting my savings?",
+            "How much real use will I get out of this purchase?",
+            "Is there a way to get a similar benefit without making the full purchase (e.g., renting, trying an alternative)?",
+            "Will this purchase force me to make other additional expenses in the future?",
+            "Is this expense an investment in my future or a simple whim?",
+            "How does this expense compare to the progress towards my savings goals?",
+            "If I were given the value of this purchase in cash right now, would I still make it?",
+            "Am I buying this out of boredom or genuine need?",
+            "Can I achieve the same result or feeling without spending this money?",
+            "What would my future self say about this purchasing decision?",
+            "Have I checked reviews or looked for alternatives before deciding?",
+            "Will this expense bring me financial stress later on?",
+            "Is the value it provides proportional to the life-time I am exchanging for it?",
+            "Am I sacrificing a future experience (like a trip) for this present purchase?"
         ];
 
         function getRandomQuestions(count) {
@@ -211,7 +211,7 @@
 
             if (isNaN(itemPrice) || isNaN(salary) || isNaN(hoursPerDay) || isNaN(daysPerWeek) ||
                 itemPrice <= 0 || salary <= 0 || hoursPerDay <= 0 || daysPerWeek <= 0) {
-                displayError('Asegúrate de rellenar todos los campos con números positivos.');
+                displayError('Make sure to fill all fields with positive numbers.');
                 lastResultData = null;
                 return;
             }
@@ -225,7 +225,7 @@
 
             if (isCredit) {
                 if (isNaN(interestRate) || interestRate < 0 || isNaN(installments) || installments <= 0) {
-                    displayError('Por favor, introduce un interés y número de cuotas válidos.');
+                    displayError('Please enter a valid interest rate and number of installments.');
                     return;
                 }
                 // Cálculo de interés simple: Capital * Tasa Anual * (Tiempo en Años)
@@ -245,7 +245,7 @@
             }
 
             if (hourlyRate <= 0 || !isFinite(hourlyRate)) {
-                displayError('Con los datos de tu jornada, no se puede calcular un salario por hora. Revisa las horas y días.');
+                displayError('With the provided work schedule, an hourly wage cannot be calculated. Please check the hours and days.');
                 lastResultData = null;
                 return;
             }
@@ -260,7 +260,7 @@
             const questionsHTML = `<ul>${randomQuestions.map(q => `<li>${q}</li>`).join('')}</ul>`;
             
             const suggestionsHTML = `
-                <h4 class="font-semibold text-gray-800 dark:text-white mb-2">Antes de comprar, pregúntate:</h4>
+                <h4 class="font-semibold text-gray-800 dark:text-white mb-2">Before you buy, ask yourself:</h4>
                 <div class="text-sm text-gray-700 dark:text-gray-300">${questionsHTML}</div>
             `;
 
@@ -319,28 +319,28 @@
             const symbol = currencySymbols[currentCurrency];
 
             let priceDetailsHTML = `
-                <p class="text-sm text-gray-600 dark:text-gray-300">Es el tiempo que necesitas trabajar para ganar <span class="font-semibold">${symbol}${totalPrice.toLocaleString('es-ES', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>.</p>
+                <p class="text-sm text-gray-600 dark:text-gray-300">This is the time you need to work to earn <span class="font-semibold">${symbol}${totalPrice.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>.</p>
             `;
 
             if (isCredit) {
-                const formattedMonthly = monthlyPayment.toLocaleString('es-ES', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                const formattedMonthly = monthlyPayment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
                 const formattedInterestTime = formatTime(hoursForInterest, hoursPerDay, true);
                 priceDetailsHTML = `
                     <div class="text-sm text-gray-600 dark:text-gray-300 space-y-1">
-                        <p>Precio del producto: <span class="font-medium">${symbol}${itemPrice.toLocaleString('es-ES', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span></p>
-                        <p>Interés del crédito: <span class="font-medium">+ ${symbol}${interestAmount.toLocaleString('es-ES', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span></p>
-                        <p class="mt-1">Costo total (en ${installments} cuotas): <span class="font-semibold">${symbol}${totalPrice.toLocaleString('es-ES', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span></p>
-                        <p class="mt-2 text-red-600 dark:text-red-400">↳ Tiempo extra por crédito: <span class="font-bold">${formattedInterestTime}</span></p>
-                        <p class="mt-2 pt-2 border-t border-blue-200 dark:border-gray-600">Cuota mensual estimada: <span class="font-bold text-blue-700 dark:text-blue-300">${symbol}${formattedMonthly}</span></p>
+                        <p>Product price: <span class="font-medium">${symbol}${itemPrice.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span></p>
+                        <p>Credit interest: <span class="font-medium">+ ${symbol}${interestAmount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span></p>
+                        <p class="mt-1">Total cost (in ${installments} installments): <span class="font-semibold">${symbol}${totalPrice.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span></p>
+                        <p class="mt-2 text-red-600 dark:text-red-400">↳ Extra time for credit: <span class="font-bold">${formattedInterestTime}</span></p>
+                        <p class="mt-2 pt-2 border-t border-blue-200 dark:border-gray-600">Estimated monthly payment: <span class="font-bold text-blue-700 dark:text-blue-300">${symbol}${formattedMonthly}</span></p>
                     </div>`;
             }
 
             resultDiv.innerHTML = `
                 <div class="bg-blue-50 dark:bg-gray-700 border-l-4 border-blue-500 dark:border-blue-400 p-4 rounded-lg animate-enter">
-                    <h3 class="text-lg font-bold text-blue-900 dark:text-white">Resultado del Cálculo:</h3>
+                    <h3 class="text-lg font-bold text-blue-900 dark:text-white">Calculation Result:</h3>
                     <p class="text-2xl md:text-3xl font-bold text-blue-700 dark:text-blue-300 my-2">${formattedResult}</p>
                     ${priceDetailsHTML}
-                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">(Basado en un salario por hora de ${symbol}${rate.toFixed(2).toLocaleString('es-ES')})</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">(Based on an hourly wage of ${symbol}${rate.toFixed(2).toLocaleString('en-US')})</p>
                     
                     <div class="mt-4 pt-4 border-t border-blue-200 dark:border-gray-600">
                         ${suggestionsHTML || ''}
@@ -364,15 +364,15 @@
         function formatTime(totalHours, hoursPerDay, isSubResult = false) {
             if (totalHours < 1) {
                 const minutes = totalHours * 60;
-                return `${minutes.toFixed(0)} minutos`;
+                return `${minutes.toFixed(0)} minutes`;
             }
             
-            const hoursText = `${totalHours.toFixed(1)} horas`;
+            const hoursText = `${totalHours.toFixed(1)} hours`;
             const daysSpanClass = isSubResult ? "font-semibold" : "text-lg md:text-xl text-blue-600 dark:text-blue-400";
 
             if (hoursPerDay > 0 && totalHours >= hoursPerDay) {
                 const days = totalHours / hoursPerDay;
-                return `${hoursText} <span class="${daysSpanClass}">(~${days.toFixed(1)} días)</span>`;
+                return `${hoursText} <span class="${daysSpanClass}">(~${days.toFixed(1)} days)</span>`;
             }
             return hoursText;
         }
