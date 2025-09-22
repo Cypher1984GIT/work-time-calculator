@@ -6,7 +6,7 @@ Have you ever wondered how many hours of your life you need to invest to buy tha
 
 ## 🌟 Demo
 
-You can try the application here: https://github.com/Cypher1984GIT/work-time-calculator
+You can try the application here: https://cypher1984git.github.io/work-time-calculator/
 
 ## ✨ Features
 
@@ -45,8 +45,6 @@ You can try the application here: https://github.com/Cypher1984GIT/work-time-cal
 ## ✍️ Author
 
 Created with ❤️ by **Cypher**.
-
-- **Twitter/X**: @Cypher1984
 
 ## 📄 License
 
