@@ -25,7 +25,7 @@ You can try the application here: https://cypher1984git.github.io/work-time-calc
 
 ## 🚀 How to use it?
 
-1.  **Abre el archivo**: Simplemente abre el archivo `index.html` en tu navegador web preferido.
+1.  **Open file**: Simply open the index.html file in your preferred web browser.
 2.  **Fill out the form**:
     - **Currency**: Choose the currency for your salary and the product.
     - **Product price**: Enter the cost of the item you want to buy.
